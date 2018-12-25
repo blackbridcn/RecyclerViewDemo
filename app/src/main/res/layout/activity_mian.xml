@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+
+   <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        app:elevation="0dp"
+        app:layout_behavior="blackbird.com.recyclerviewdemo.FixAppBarLayoutBehavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:id="@+id/top_actionbar"
+                android:layout_height="45dp"
+                android:background="@color/colorPrimaryDark"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/left_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:id="@+id/left_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:scaleType="centerInside" />
+
+                    <TextView
+                        android:id="@+id/left_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_toEndOf="@+id/left_image"
+                        android:layout_toRightOf="@+id/left_image"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/white" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxEms="8"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/action_text_size" />
+
+
+                <RelativeLayout
+                    android:id="@+id/right_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true">
+
+                    <ImageView
+                        android:id="@+id/right_imge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dp"
+                        android:scaleType="centerInside" />
+
+                    <TextView
+                        android:id="@+id/right_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/white" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+  <!--     <ViewStub
+           android:id="@+id/drag_viewstube"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:inflatedId="@id/topLayout"
+           android:layout="@layout/viewstube_drag_recycler_view" />-->
+       <include layout="@layout/viewstube_drag_recycler_view"/>
+
+       <android.support.design.widget.TabLayout
+           android:id="@+id/tab_layout"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+       </android.support.design.widget.TabLayout>
+       <ImageView
+           android:layout_width="match_parent"
+           android:layout_height="8dp"
+           android:src="@drawable/menu_translucent_bg"
+           tools:src="@drawable/menu_translucent_bg" />
+
+  </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:background="@color/grey"
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    </android.support.v7.widget.RecyclerView>
+
+</android.support.design.widget.CoordinatorLayout>

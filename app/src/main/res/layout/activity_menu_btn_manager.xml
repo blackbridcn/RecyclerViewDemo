@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <include layout="@layout/content_actionbar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top_actionbar">
+
+        <ScrollView
+            android:id="@+id/sv_index"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/topLayout"
+            android:layout_marginTop="-6dp"
+            android:fillViewport="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:background="#f7f6f6" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerview_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentTop="true"
+                    android:background="#ffffff"/>
+               <!-- android:layout_alignParentStart="true"-->
+
+            </RelativeLayout>
+        </ScrollView>
+
+        <ViewStub
+            android:id="@+id/drag_viewstube"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inflatedId="@id/topLayout"
+            android:layout="@layout/viewstube_drag_recycler_view" />
+    </RelativeLayout>
+</LinearLayout>

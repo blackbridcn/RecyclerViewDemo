@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">RecyclerViewDemo</string>
+    <string name="title_activity_menu_btn_manager">MenuBtnManagerActivity</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="toast_most_buttons">首页最多添加11个应用</string>
+    <string name="edit">编辑</string>
+    <string name="finish">完成</string>
+    <string name="all_appliction">全部应用</string>
+    <string name="back">返回</string>
+
+    <string name="more_btn">更多</string>
+
+    <string name="install_tip">安装提示</string>
+    <string name="no_install_tip">你没有安装</string>
+    <string name="need_install_tip">,是否需要下载安装？</string>
+    <string name="quet">取消</string>
+    <string name="installs">安装</string>
+    <string name="downing_app">正在下载</string>
+    <string name="error_toast">出错啦！！！！</string>
+
+
+</resources>
