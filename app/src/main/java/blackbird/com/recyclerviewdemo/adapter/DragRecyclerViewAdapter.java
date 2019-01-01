@@ -15,7 +15,7 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
-import blackbird.com.recyclerviewdemo.Main2Activity;
+import blackbird.com.recyclerviewdemo.MenuManagerActivity;
 import blackbird.com.recyclerviewdemo.R;
 import blackbird.com.recyclerviewdemo.application.AppApplication;
 import blackbird.com.recyclerviewdemo.bean.MenuResourceData;
@@ -28,11 +28,11 @@ import blackbird.com.recyclerviewdemo.uitls.drag_recycleview.RecyclerViewItemTou
 
 public class DragRecyclerViewAdapter extends RecyclerView.Adapter<DragRecyclerViewAdapter.DragViewHodler>
         implements RecyclerViewItemTouchCallback.ItemTouchAdapter {
-    private Main2Activity mContext;
+    private MenuManagerActivity mContext;
     private List<MenuResourceData> mainList;
     private boolean isEdit;
 
-    public DragRecyclerViewAdapter(Main2Activity menuBtnManagerActivity, List<MenuResourceData> mainList) {
+    public DragRecyclerViewAdapter(MenuManagerActivity menuBtnManagerActivity, List<MenuResourceData> mainList) {
         this.mainList = mainList;
         this.mContext = menuBtnManagerActivity;
     }

@@ -17,8 +17,9 @@ import java.util.Collections;
 import java.util.List;
 
 import blackbird.com.recyclerviewdemo.HomeActivity;
-import blackbird.com.recyclerviewdemo.Main2Activity;
+
 import blackbird.com.recyclerviewdemo.MainActivity;
+import blackbird.com.recyclerviewdemo.MenuManagerActivity;
 import blackbird.com.recyclerviewdemo.R;
 import blackbird.com.recyclerviewdemo.application.AppApplication;
 import blackbird.com.recyclerviewdemo.bean.MenuCustomContent;
@@ -142,7 +143,7 @@ public class AppMainButtonDataUtils {
         }
         if (allList == null || allList.size() < 1)
             allList = getMainPageDefaultButtonData();
-        allList.add(new MenuResourceData("更多", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_CLASS_J_ACTIVITY(), R.mipmap.function, Main2Activity.class, 0));
+        allList.add(new MenuResourceData("更多", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_CLASS_J_ACTIVITY(), R.mipmap.function, MenuManagerActivity.class, 0));
         return allList;
     }
 

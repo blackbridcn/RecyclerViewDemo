@@ -17,7 +17,7 @@ import com.org.appconstant.HomeButtonTypeContentKotlin;
 
 import java.util.List;
 
-import blackbird.com.recyclerviewdemo.Main2Activity;
+import blackbird.com.recyclerviewdemo.MenuManagerActivity;
 import blackbird.com.recyclerviewdemo.R;
 import blackbird.com.recyclerviewdemo.bean.MenuResourceData;
 import blackbird.com.recyclerviewdemo.uitls.AppMainButtonDataUtils;
@@ -29,11 +29,11 @@ import blackbird.com.recyclerviewdemo.uitls.StringUtils;
  */
 
 public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerViewAdapter.AllButtonChildViewHold> {
-    private Main2Activity mActvity;
+    private MenuManagerActivity mActvity;
     private List<MenuResourceData> resourceDataList;
     private boolean isEdit = false;
 
-    public MenuRecyclerViewAdapter(Main2Activity activity, List<MenuResourceData> resourceDataList, boolean isEdit) {
+    public MenuRecyclerViewAdapter(MenuManagerActivity activity, List<MenuResourceData> resourceDataList, boolean isEdit) {
         this.mActvity = activity;
         this.resourceDataList = resourceDataList;
         this.isEdit = isEdit;

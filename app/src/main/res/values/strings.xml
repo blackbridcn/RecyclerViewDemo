@@ -11,6 +11,9 @@
 
     <string name="more_btn">更多</string>
 
+    <string name="home_btn">首页应用</string>
+    <string name="home_btn_tip">首页应用(按住拖动调整排序)</string>
+
     <string name="install_tip">安装提示</string>
     <string name="no_install_tip">你没有安装</string>
     <string name="need_install_tip">,是否需要下载安装？</string>

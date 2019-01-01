@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +14,7 @@ import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -40,7 +40,7 @@ import blackbird.com.recyclerviewdemo.uitls.drag_recycleview.RecyclerViewItemTou
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class Main2Activity extends AppCompatActivity {
+public class MenuManagerActivity extends AppCompatActivity {
 
     @BindView(R.id.left_image)
     ImageView leftImage;
@@ -67,8 +67,8 @@ public class Main2Activity extends AppCompatActivity {
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
     public List<MenuResourceData> mainList;
-    @BindView(R.id.app_bar)
-    AppBarLayout appBar;
+   // @BindView(R.id.app_bar)
+  //  AppBarLayout appBar;
     private List<MenuGroupResourceData> allList;
     private DragRecyclerViewAdapter mDragRecyclerViewAdapter;
     private ItemTouchHelper mItemTouchHelper;
@@ -96,6 +96,13 @@ public class Main2Activity extends AppCompatActivity {
         //https://github.com/ywanhzy/MenuManage-Imitate-Alipay
         //https://github.com/Cornflower1991/RecyclerViewTabLayout
         //https://blog.csdn.net/xu_coding/article/details/80870334
+
+        //https://www.jianshu.com/p/3bf26722c489
+        //https://github.com/sunfusheng/StickyHeaderListView.git
+
+       // https://github.com/oldbirdy/recyclerdemo
+        //https://blog.csdn.net/xu_coding/article/details/80870334
+
     }
 
 
@@ -107,7 +114,7 @@ public class Main2Activity extends AppCompatActivity {
         rightTextview.setText(this.getResources().getString(R.string.edit));
         leftTextview.setText(this.getResources().getString(R.string.back));
         leftTextview.setOnClickListener((v) ->
-                Main2Activity.this.finish()
+                MenuManagerActivity.this.finish()
         );
         rightTextview.setOnClickListener((v)->{
             setItemOnLongClick();
@@ -166,7 +173,7 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
 
-            }
+        }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
@@ -190,7 +197,7 @@ public class Main2Activity extends AppCompatActivity {
             public void onItemClick(RecyclerView.ViewHolder vh) {
                 super.onItemClick(vh);
                 if (!mDragRecyclerViewAdapter.getEditStatue())
-                    AppMainButtonDataUtils.getInstance().handleButtonData(Main2Activity.this, mainList.get(vh.getLayoutPosition()));
+                    AppMainButtonDataUtils.getInstance().handleButtonData(MenuManagerActivity.this, mainList.get(vh.getLayoutPosition()));
             }
 
             @Override
@@ -224,6 +231,8 @@ public class Main2Activity extends AppCompatActivity {
                 super.onScrolled(recyclerView, dx, dy);
                 LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
                 //滑动RecyclerView list的时候，根据最上面一个Item的position来切换tab
+                 int position = layoutManager.findFirstVisibleItemPosition();
+                Log.e("TAG", "onScrolled: ------------------> position :"+position );
                 TabLayout.Tab tabAt = tabLayout.getTabAt(layoutManager.findFirstVisibleItemPosition());
                 if (tabAt != null && !tabAt.isSelected()) {
                     tabAt.select();

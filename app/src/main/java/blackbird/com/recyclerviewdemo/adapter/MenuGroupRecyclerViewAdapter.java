@@ -9,10 +9,10 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import blackbird.com.recyclerviewdemo.Main2Activity;
+import blackbird.com.recyclerviewdemo.MenuManagerActivity;
 import blackbird.com.recyclerviewdemo.R;
-import blackbird.com.recyclerviewdemo.bean.MenuResourceData;
 import blackbird.com.recyclerviewdemo.bean.MenuGroupResourceData;
+import blackbird.com.recyclerviewdemo.bean.MenuResourceData;
 
 
 /**
@@ -20,7 +20,7 @@ import blackbird.com.recyclerviewdemo.bean.MenuGroupResourceData;
  */
 
 public class MenuGroupRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private Main2Activity mActivity;
+    private MenuManagerActivity mActivity;
     private List<MenuGroupResourceData> allList;
     private boolean isEdit = false;
     private final RecyclerView.RecycledViewPool viewPool;
@@ -30,7 +30,7 @@ public class MenuGroupRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerV
     private int parRVHeight;
     private int itemHeight;
 
-    public MenuGroupRecyclerViewAdapter(Main2Activity menuBtnManagerActivity, RecyclerView parRecyclerView, List<MenuGroupResourceData> allList) {
+    public MenuGroupRecyclerViewAdapter(MenuManagerActivity menuBtnManagerActivity, RecyclerView parRecyclerView, List<MenuGroupResourceData> allList) {
         this.mActivity = menuBtnManagerActivity;
         this.allList = allList;
         this.parRecyclerView = parRecyclerView;
