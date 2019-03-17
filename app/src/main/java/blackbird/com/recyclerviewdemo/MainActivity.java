@@ -20,6 +20,7 @@ import java.util.List;
 
 import blackbird.com.recyclerviewdemo.adapter.MainRecyclerViewAdapter;
 import blackbird.com.recyclerviewdemo.bean.MenuResourceData;
+import blackbird.com.recyclerviewdemo.menueven.MenuClickEventContext;
 import blackbird.com.recyclerviewdemo.uitls.AppMainButtonDataUtils;
 import blackbird.com.recyclerviewdemo.uitls.DataCleanManager;
 import blackbird.com.recyclerviewdemo.uitls.ThreadPool;
@@ -96,7 +97,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setListener() {
         mMainRecyclerViewAdapter.setOnItemClickListener((view, position) ->
-            AppMainButtonDataUtils.getInstance().handleButtonData(this, mMainPageDefaultButtonData.get(position))
+                        MenuClickEventContext.getInstance().onClick(this, mMainPageDefaultButtonData.get(position))
+            /*AppMainButtonDataUtils.getInstance().handleButtonData(this, mMainPageDefaultButtonData.get(position))*/
         );
         mMainRecyclerViewAdapter.setOnItemLongClickListener((view, position) ->
             Toast.makeText(MainActivity.this, "OnItemLongClick  position :" + position, Toast.LENGTH_SHORT).show()
@@ -112,5 +114,55 @@ public class MainActivity extends AppCompatActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+  /*  public void testRxinterval(){
+        int  countTime=60;
+        Observable.interval(0, 1, TimeUnit.SECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(new Func1<Long, Integer>() {
+                    @Override
+                    public Integer call(Long aLong) {
+                        return countTime-aLong;
+                    }
+                })
+                .take(30)
+                .doOnSubscribe(new Action0() {
+                    @Override
+                    public void call() {
+                        // LogUtils.e("================doOnSubscribe");
+                        //  timeText.setVisibility(View.VISIBLE);
+                        // failLayout.setVisibility(View.GONE);
+                    }
+                })
+                .doOnUnsubscribe(new Action0() {
+                    @Override
+                    public void call() {
+                        //  LogUtils.e("================doOnUnsubscribe");
+                        stopSubScribe();
+                    }
+                })
+                .subscribe(new Subscriber<Integer>() {
+                    @Override
+                    public void onCompleted() {
+                        //  timeText.setVisibility(View.GONE);
+                        // failLayout.setVisibility(View.VISIBLE);
+                    }
 
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onNext(Integer integer) {
+                        //  LogUtils.e("================"+integer);
+                        // timeText.setText(Html.fromHtml(String.format(getResources().getString(R.string.verify_code_time), "<font color=\"#3d9bf5\">" + integer + "秒</font>")));
+                    }
+                });
+
+
+    }
+    private void stopSubScribe() {
+        if (subscription != null) {
+            subscription.unsubscribe();
+        }
+    }*/
 }

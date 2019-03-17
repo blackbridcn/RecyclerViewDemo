@@ -21,6 +21,10 @@ public class StringUtils {
         return s == null || s.length() == 0;
     }
 
+    public static boolean isNotEmpty(CharSequence s){
+        return !isEmpty(s);
+    }
+
     /**
      * 判断字符串是否为null或全为空格
      *

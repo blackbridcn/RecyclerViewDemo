@@ -1,12 +1,10 @@
 package org.x5webview.utils
 
-import android.app.Application
-import com.tencent.smtt.sdk.QbSdk
-
 /**
  * Created by yuzhu on 2018/2/9.
  */
 object WebViewUtils {
+/*
 
     fun initTBSX5(mApplication: Application): Boolean {
         var result: Boolean = false;
@@ -24,6 +22,7 @@ object WebViewUtils {
         QbSdk.initX5Environment(mApplication, cb)
         return result
     }
+*/
 
   /*  fun startWebView(pckagCtx: Context, Url: String) {
         //Context packageContext, String Url

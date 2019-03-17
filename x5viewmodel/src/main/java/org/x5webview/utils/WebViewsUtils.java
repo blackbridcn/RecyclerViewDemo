@@ -36,6 +36,7 @@ public class WebViewsUtils {
     public static void startWebView(Context pckCtx,String uri){
         Intent intent = new Intent(pckCtx, X5BrowserActivity.class);
         intent.setData(Uri.parse(uri));
+       // intent.setDataAndType()
         pckCtx.startActivity(intent);
     }
 }

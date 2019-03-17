@@ -17,20 +17,18 @@ import java.util.Collections;
 import java.util.List;
 
 import blackbird.com.recyclerviewdemo.HomeActivity;
-
 import blackbird.com.recyclerviewdemo.MainActivity;
 import blackbird.com.recyclerviewdemo.MenuManagerActivity;
 import blackbird.com.recyclerviewdemo.R;
+import blackbird.com.recyclerviewdemo.appcontant.HomeMenuTypeContant;
 import blackbird.com.recyclerviewdemo.application.AppApplication;
 import blackbird.com.recyclerviewdemo.bean.MenuCustomContent;
 import blackbird.com.recyclerviewdemo.bean.MenuGroupResourceData;
 import blackbird.com.recyclerviewdemo.bean.MenuResourceData;
 
-
 /**
  * Created by yzzhang on 2017/12/8.
  */
-
 public class AppMainButtonDataUtils {
     private static class AppMainButtonDataUtilsHolder {
         private static final AppMainButtonDataUtils INSTANCE = new AppMainButtonDataUtils();
@@ -126,7 +124,7 @@ public class AppMainButtonDataUtils {
      * 获取主要按钮数据【主页按钮数据】
      */
     public List<MenuResourceData> getMainButtonRes() {
-        List<MenuResourceData> allList = (List<MenuResourceData>) AppApplication.getInstance().readObject(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_MAIN_BUTTON_DATA());
+        List<MenuResourceData> allList = (List<MenuResourceData>) AppApplication.getInstance().readObject(HomeMenuTypeContant.TYPE_MAIN_BUTTON_DATA);
         if (allList == null || allList.size() < 1)
             allList = getMainPageDefaultButtonData();
         return allList;

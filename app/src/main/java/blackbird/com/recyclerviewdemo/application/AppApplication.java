@@ -262,10 +262,6 @@ public class AppApplication extends Application {
      * @throws IOException FileNotFoundException
      */
     public Serializable readObject(final String file) {
-      /*  if (!isExistDataCache(file)){
-            Log.e("TAG", "readObject: ------------- >>>>>>>>>>"+file );
-            return null;}*/
-
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         try {
