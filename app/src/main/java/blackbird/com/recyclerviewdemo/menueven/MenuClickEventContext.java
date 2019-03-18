@@ -23,7 +23,7 @@ public class MenuClickEventContext {
     }
 
     public void onClick(Activity mContext, MenuResourceData mMenuResourceData) {
-        MenuEventContainer.getMenuEvent(mMenuResourceData.getBtnType()).onMenuClick(mContext, mMenuResourceData);
-        MenuEventContainer.getAllMenuEvent().get(mMenuResourceData.getBtnType()).onMenuClick(mContext, mMenuResourceData);
+        MenuClickStrategy clickStrategy = MenuEventContainer.getMenuEvent(mMenuResourceData.getBtnType());
+        if (clickStrategy != null) clickStrategy.onMenuClick(mContext, mMenuResourceData);
     }
 }

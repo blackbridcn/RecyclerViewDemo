@@ -32,6 +32,7 @@ import blackbird.com.recyclerviewdemo.adapter.MenuGroupRecyclerViewAdapter;
 import blackbird.com.recyclerviewdemo.application.AppApplication;
 import blackbird.com.recyclerviewdemo.bean.MenuGroupResourceData;
 import blackbird.com.recyclerviewdemo.bean.MenuResourceData;
+import blackbird.com.recyclerviewdemo.menueven.MenuClickEventContext;
 import blackbird.com.recyclerviewdemo.uitls.AppMainButtonDataUtils;
 import blackbird.com.recyclerviewdemo.uitls.CollectionUtls;
 import blackbird.com.recyclerviewdemo.uitls.StringUtils;
@@ -196,8 +197,10 @@ public class MenuManagerActivity extends AppCompatActivity {
             @Override
             public void onItemClick(RecyclerView.ViewHolder vh) {
                 super.onItemClick(vh);
-                if (!mDragRecyclerViewAdapter.getEditStatue())
-                    AppMainButtonDataUtils.getInstance().handleButtonData(MenuManagerActivity.this, mainList.get(vh.getLayoutPosition()));
+                if (!mDragRecyclerViewAdapter.getEditStatue()){
+                    MenuClickEventContext.getInstance().onClick(MenuManagerActivity.this, mainList.get(vh.getLayoutPosition()));
+                    //AppMainButtonDataUtils.getInstance().handleButtonData(MenuManagerActivity.this, mainList.get(vh.getLayoutPosition()));
+                }
             }
 
             @Override

@@ -40,7 +40,7 @@ package com.org.appconstant
     //根据服务器返回数据跳转WebView/H5
     val TYPE_URL_J_WEBVIEW_H5 = "TYPE_URL_J_WEBVIEW_H5"
     //本地URL数据跳转WebView/H5
-    val TYPE_LOCAL_J_WEBVIEW_H5 = "TYPE_LOCAL_J_WEBVIEW_H5"
+   // val TYPE_LOCAL_J_WEBVIEW_H5 = "TYPE_LOCAL_J_WEBVIEW_H5"
     //Android App跳转指定的Activity
     val  TYPE_SKIP_APP_START_ACTIVITY = "AndroidAppStartActivity"
     //AndroidAPP跳转Packagename

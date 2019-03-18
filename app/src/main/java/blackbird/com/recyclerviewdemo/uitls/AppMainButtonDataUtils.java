@@ -68,7 +68,7 @@ public class AppMainButtonDataUtils {
         } else if (type.equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_STRING_J_ACTIVITY())) {
             intent = new Intent(mMenuResourceData.getDescription());
             mContext.startActivityForResult(intent, MainActivity.BTN_MENU_RESULT_CODE);
-        } else if (type.equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_J_WEBVIEW_H5()) || type.equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_J_WEBVIEW_H5())) {
+        } else if (type.equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_J_WEBVIEW_H5())) {
             WebViewsUtils.startWebView(mContext, mMenuResourceData.getContentUrl());
         } else if (type.equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_SKIP_APP()) || type.equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_SKIP_APP())) {
             skipThridApp(mContext, mMenuResourceData);
@@ -178,7 +178,7 @@ public class AppMainButtonDataUtils {
         MenuResourceData wechats = new MenuResourceData("微信", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_SKIP_APP(), wechat, R.mipmap.icon_wechat, "10", HomeButtonTypeContentKotlin.INSTANCE.getLOCAL_TYPE());
         MenuResourceData setting = new MenuResourceData("系统设置", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_STRING_J_ACTIVITY(), R.mipmap.filechooser, Settings.ACTION_SETTINGS, HomeButtonTypeContentKotlin.INSTANCE.getLOCAL_TYPE());
         MenuResourceData activty = new MenuResourceData("Activty", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_CLASS_J_ACTIVITY(), R.mipmap.ic_launcher_round, HomeActivity.class, HomeButtonTypeContentKotlin.INSTANCE.getLOCAL_TYPE());
-        MenuResourceData baidu = new MenuResourceData("百度一下", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_J_WEBVIEW_H5(), "https://www.baidu.com/", R.mipmap.tbsvideo, HomeButtonTypeContentKotlin.INSTANCE.getLOCAL_TYPE());
+        MenuResourceData baidu = new MenuResourceData("百度一下", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_J_WEBVIEW_H5(), "https://www.baidu.com/", R.mipmap.tbsvideo, HomeButtonTypeContentKotlin.INSTANCE.getLOCAL_TYPE());
         MenuCustomContent smartActy = new MenuCustomContent(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_START_ACTIVITY(), "com.alk.activity.StartActivity");
         MenuCustomContent smartPckg = new MenuCustomContent(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_PACKAGE_NAME(), "com.alk.smart");
         MenuCustomContent smartDownPath = new MenuCustomContent(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_DOWN_LOAD_PATH(), "http://39.108.105.41:8080/download/smarthome20171025.apk");
@@ -223,8 +223,8 @@ public class AppMainButtonDataUtils {
      * @return ButtonResourceDataInfo
      */
     public List<MenuResourceData> getLocalWebViewList() {
-        MenuResourceData baidu = new MenuResourceData("百度一下", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_J_WEBVIEW_H5(), "https://www.baidu.com/", R.mipmap.tbsvideo, "google", HomeButtonTypeContentKotlin.INSTANCE.getLOCAL_TYPE());
-        MenuResourceData soho = new MenuResourceData("搜狐", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_J_WEBVIEW_H5(), "http://www.sohu.com/", R.mipmap.filechooser, HomeButtonTypeContentKotlin.INSTANCE.getLOCAL_TYPE());
+        MenuResourceData baidu = new MenuResourceData("百度一下", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_J_WEBVIEW_H5(), "https://www.baidu.com/", R.mipmap.tbsvideo, "google", HomeButtonTypeContentKotlin.INSTANCE.getLOCAL_TYPE());
+        MenuResourceData soho = new MenuResourceData("搜狐", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_J_WEBVIEW_H5(), "http://www.sohu.com/", R.mipmap.filechooser, HomeButtonTypeContentKotlin.INSTANCE.getLOCAL_TYPE());
         return creatArrayList(baidu, soho);
     }
 

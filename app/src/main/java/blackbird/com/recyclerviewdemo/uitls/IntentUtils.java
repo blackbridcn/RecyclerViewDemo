@@ -1,5 +1,6 @@
 package blackbird.com.recyclerviewdemo.uitls;
 
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
@@ -32,6 +33,12 @@ public class IntentUtils {
             return false;
         }
         return true;
+    }
+
+    public static void  startActivityForResult(@NonNull Activity mContext, @NonNull Class<?> cls, int requestCode){
+        Intent intent = new Intent();
+        intent.setClass(mContext, cls);
+        mContext.startActivityForResult(intent, requestCode);
     }
 
     /**

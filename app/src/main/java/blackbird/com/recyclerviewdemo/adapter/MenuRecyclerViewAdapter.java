@@ -2,7 +2,6 @@ package blackbird.com.recyclerviewdemo.adapter;
 
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,7 @@ import java.util.List;
 import blackbird.com.recyclerviewdemo.MenuManagerActivity;
 import blackbird.com.recyclerviewdemo.R;
 import blackbird.com.recyclerviewdemo.bean.MenuResourceData;
-import blackbird.com.recyclerviewdemo.uitls.AppMainButtonDataUtils;
+import blackbird.com.recyclerviewdemo.menueven.MenuClickEventContext;
 import blackbird.com.recyclerviewdemo.uitls.StringUtils;
 
 
@@ -52,7 +51,6 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerVi
             return;
         }
         final MenuResourceData resourceData = resourceDataList.get(position);
-        Log.e("TAG", "onBindViewHolder: ------->"+resourceData );
         String btnType = resourceData.getBtnType();
         if (btnType.equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_CLASS_J_ACTIVITY()) || btnType.equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_SKIP_APP())
                 || btnType.equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_J_WEBVIEW_H5())) {
@@ -102,8 +100,10 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerVi
                     mActvity.addMenuItem(resourceData);
                     holder.item_add_img.setBackgroundResource(R.mipmap.ic_block_selected);//menu_select_28
                 }
-            } else
-                AppMainButtonDataUtils.getInstance().handleButtonData(mActvity, resourceData);
+            } else{
+                MenuClickEventContext.getInstance().onClick(mActvity,resourceData);
+                //AppMainButtonDataUtils.getInstance().handleButtonData(mActvity, resourceData);
+            }
         });
         holder.item_container.setOnLongClickListener((view) -> {
             if (!isEdit)
