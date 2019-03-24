@@ -4,27 +4,16 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.File;
 import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import javax.management.modelmbean.InvalidTargetObjectTypeException;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends BaseActivity {
     // tv1用来显示时间，tv2是用来做个背景的
     private TextView tv1, tv2;
     // 想调用字体需要使用这个Typeface

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSmoothScroller;
@@ -41,7 +40,7 @@ import blackbird.com.recyclerviewdemo.uitls.drag_recycleview.RecyclerViewItemTou
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MenuManagerActivity extends AppCompatActivity {
+public class MenuManagerActivity extends BaseActivity{
 
     @BindView(R.id.left_image)
     ImageView leftImage;

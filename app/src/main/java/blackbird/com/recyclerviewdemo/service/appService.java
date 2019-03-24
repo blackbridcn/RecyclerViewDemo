@@ -18,4 +18,9 @@ public class appService extends IntentService {
     protected void onHandleIntent(@Nullable Intent intent) {
 
     }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
 }
