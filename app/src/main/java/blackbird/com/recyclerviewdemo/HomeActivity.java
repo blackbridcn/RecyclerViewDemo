@@ -4,22 +4,33 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class HomeActivity extends BaseActivity {
+import javax.management.modelmbean.InvalidTargetObjectTypeException;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+public class HomeActivity extends AppCompatActivity {
     // tv1用来显示时间，tv2是用来做个背景的
     private TextView tv1, tv2;
     // 想调用字体需要使用这个Typeface
     private Typeface typeface;
     // 设置一个常量，这里就是我们的数码管字体文件
-    private static final String FONT_DIGITAL_7 = "fonts" + File.separator
+    private static final String FONT_DIGITAL_7 = "font" + File.separator
             + "digital-7.ttf";
     // Handler里用
     private static final int SHOW_TIME = 1;
@@ -76,7 +87,7 @@ public class HomeActivity extends BaseActivity {
             //com.eg.android.AlipayGphone.AlipayLogin
             Intent intent = new Intent();
             intent.setClassName("com.eg.android.AlipayGphone", "com.eg.android.AlipayGphone.AlipayLogin");
-            startActivity(intent);
+           // startActivity(intent);
         }catch (Exception e) {
             String url = "https://ds.alipay.com/?from=mobileweb";
             //https://t.alipayobjects.com/L1/71/100/and/alipay_wap_main.apk
