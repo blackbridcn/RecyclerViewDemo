@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">RecyclerViewDemo</string>
     <string name="title_activity_menu_btn_manager">MenuBtnManagerActivity</string>
     <string name="title_activity_home">HomeActivity</string>
@@ -15,8 +15,10 @@
     <string name="home_btn_tip">首页应用(按住拖动调整排序)</string>
 
     <string name="install_tip">安装提示</string>
-    <string name="no_install_tip">你没有安装</string>
-    <string name="need_install_tip">,是否需要下载安装？</string>
+
+    <string name="down_install_tip">你没有安装 <xliff:g id="app_name">%1$s</xliff:g>,是否需要下载安装？</string>
+    <string name="no_install_tip">no_install_tip</string>
+    <string name="need_install_tip">need_install_tip</string>
     <string name="quet">取消</string>
     <string name="installs">安装</string>
     <string name="downing_app">正在下载</string>

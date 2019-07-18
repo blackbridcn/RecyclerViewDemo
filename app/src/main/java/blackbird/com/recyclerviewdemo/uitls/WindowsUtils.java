@@ -5,12 +5,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
+
+import androidx.annotation.RequiresApi;
 
 /**
  * Created by yuzhu on 2017/3/3.

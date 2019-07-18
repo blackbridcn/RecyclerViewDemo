@@ -1,10 +1,12 @@
 package blackbird.com.recyclerviewdemo.test;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Scroller;
+
+import androidx.annotation.Nullable;
 
 public class ScrollerTest  extends View{
 

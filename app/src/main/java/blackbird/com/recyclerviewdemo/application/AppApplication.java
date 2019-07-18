@@ -68,7 +68,6 @@ public class AppApplication extends Application {
         registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(Activity activity, Bundle bundle) {
-                Log.e("TAG", "onActivityCreated:--------- > "+activity.getClass().getSimpleName() );
 
             }
 
@@ -99,7 +98,6 @@ public class AppApplication extends Application {
 
             @Override
             public void onActivityDestroyed(Activity activity) {
-                Log.e("TAG", "onActivityDestroyed:--------- > "+activity.getClass().getSimpleName() );
             }
         });
     }
@@ -233,17 +231,14 @@ public class AppApplication extends Application {
             oos.flush();
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e("TAG", "saveObject:  Exception ERROR : " + e.toString());
         } finally {
             try {
                 oos.close();
             } catch (Exception e) {
-                Log.e("TAG", "saveObject:  Exception ERROR : " + e.toString());
             }
             try {
                 fos.close();
             } catch (Exception e) {
-                Log.e("TAG", "saveObject:  Exception ERROR : " + e.toString());
             }
         }
     }
@@ -271,16 +266,11 @@ public class AppApplication extends Application {
         try {
             fis = openFileInput(file);
             ois = new ObjectInputStream(fis);
-            Log.e("TAG", "readObject: ObjectInputStream----------- >>>>>>>>>>"+file );
-
             return (Serializable) ois.readObject();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            Log.e("TAG", "readObject: FileNotFoundException----------- >>>>>>>>>>"+e.getMessage() );
-
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e("TAG", "readObject: Exception----------- >>>>>>>>>>"+e.getMessage() );
             ;
             // 反序列化失败 - 删除缓存文件
             if (e instanceof InvalidClassException) {

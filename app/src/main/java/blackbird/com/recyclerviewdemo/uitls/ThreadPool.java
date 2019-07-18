@@ -1,6 +1,7 @@
 package blackbird.com.recyclerviewdemo.uitls;
 
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadFactory;

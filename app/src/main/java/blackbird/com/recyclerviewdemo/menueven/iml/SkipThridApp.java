@@ -60,7 +60,7 @@ public class SkipThridApp implements MenuClickStrategy {
             new DialogFragment();
 
             new AlertDialog.Builder(mContext).setTitle(mContext.getResources().getString(R.string.install_tip))
-                    .setMessage(mContext.getResources().getString(R.string.no_install_tip) + title + mContext.getResources().getString(R.string.need_install_tip))
+                    .setMessage(mContext.getResources().getString(R.string.down_install_tip,title))
                     .setNegativeButton(mContext.getResources().getString(R.string.quet), (dialogInterface, i) -> {
                     })
                     .setPositiveButton(mContext.getResources().getString(R.string.installs), (dialogInterface, i) ->

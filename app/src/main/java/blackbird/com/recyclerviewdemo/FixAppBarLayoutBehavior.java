@@ -1,11 +1,14 @@
 package blackbird.com.recyclerviewdemo;
 
 import android.content.Context;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.view.ViewCompat;
+
 import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.view.ViewCompat;
+
+import com.google.android.material.appbar.AppBarLayout;
 
 /**
  * Description: TODO
@@ -23,7 +26,7 @@ public class FixAppBarLayoutBehavior extends AppBarLayout.Behavior {
 
     @Override
     public void onNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout child, View target,
-            int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type) {
+                               int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type) {
         super.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed,
                 dxUnconsumed, dyUnconsumed, type);
         stopNestedScrollIfNeeded(dyUnconsumed, child, target, type);

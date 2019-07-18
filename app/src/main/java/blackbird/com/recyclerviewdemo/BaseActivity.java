@@ -5,7 +5,9 @@ import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+
+
+import androidx.annotation.Nullable;
 
 import com.trello.rxlifecycle.components.RxActivity;
 

@@ -4,25 +4,16 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
 import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import javax.management.modelmbean.InvalidTargetObjectTypeException;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class HomeActivity extends AppCompatActivity {
     // tv1用来显示时间，tv2是用来做个背景的
@@ -32,6 +23,10 @@ public class HomeActivity extends AppCompatActivity {
     // 设置一个常量，这里就是我们的数码管字体文件
     private static final String FONT_DIGITAL_7 = "font" + File.separator
             + "digital-7.ttf";
+    //银行数字字体 Windows提供了很多字体文件，可以在C:\Windows\Fonts找到
+    private static final String FONT_FARR_7 = "font" + File.separator
+            + "Farrington7B_Qiqi.ttf";
+
     // Handler里用
     private static final int SHOW_TIME = 1;
 
@@ -50,10 +45,7 @@ public class HomeActivity extends AppCompatActivity {
                 case SHOW_TIME:
                     Calendar calendar = Calendar.getInstance();
                     // 显示时间
-                    tv1.setText(String.format("%02d:%02d:%02d",
-                            calendar.get(Calendar.HOUR_OF_DAY),
-                            calendar.get(Calendar.MINUTE),
-                            calendar.get(Calendar.SECOND)));
+                   // tv1.setText(String.format("%02d:%02d:%02d", calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), calendar.get(Calendar.SECOND)));
                     break;
                 default:
                     break;
@@ -103,7 +95,7 @@ public class HomeActivity extends AppCompatActivity {
         // 设置字体
         tv1.setTypeface(typeface);
         tv2.setTypeface(typeface);
-        tv2.setText("88:88:88");
+        tv2.setText("88:AC:BF");
         // 0毫秒后执行timerTask，并且以后每隔1000毫秒执行一次timerTask
         timer.schedule(timerTask, 0, 1000);
     }
