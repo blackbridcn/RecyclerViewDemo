@@ -15,7 +15,8 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.org.appconstant.HomeButtonTypeContentKotlin;
+
+import org.aop.annotation.Trace;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity   extends BaseActivity {
+public class MainActivity extends BaseActivity {
 
     @BindView(R.id.rv_mian_btn)
     RecyclerView rvMianBtn;
@@ -63,7 +64,7 @@ public class MainActivity   extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.load_mian_btn:
-                NetDataTask netDataTask = new NetDataTask(MainActivity.this, HomeButtonTypeContentKotlin.INSTANCE.getNetData());
+                NetDataTask netDataTask = new NetDataTask(MainActivity.this, HomeButtonTypeContent.netData);
                 ThreadPool.getInstance().getThreadPoolExecutor().execute(netDataTask);
                 break;
             case R.id.clear_cache_btn:
@@ -74,9 +75,9 @@ public class MainActivity   extends BaseActivity {
                     Intent intent = packageManager.
                             getLaunchIntentForPackage("com.eg.android.AlipayGphone");
                     startActivity(intent);
-                }catch (Exception e) {
+                } catch (Exception e) {
                     String url = "https://ds.alipay.com/?from=mobileweb";
-                    Log.e("TAG", "onViewClicked: ----------------> "+ e.getMessage());
+                    Log.e("TAG", "onViewClicked: ----------------> " + e.getMessage());
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse(url));
                     startActivity(intent);
@@ -86,7 +87,7 @@ public class MainActivity   extends BaseActivity {
         }
     }
 
-
+    @Trace
     private void initData() {
         mMainPageDefaultButtonData = AppMainButtonDataUtils.getInstance().getMainButtonData();
         mMainRecyclerViewAdapter = new MainRecyclerViewAdapter(this);
@@ -99,10 +100,10 @@ public class MainActivity   extends BaseActivity {
     private void setListener() {
         mMainRecyclerViewAdapter.setOnItemClickListener((view, position) ->
                         MenuClickEventContext.getInstance().onClick(this, mMainPageDefaultButtonData.get(position))
-            /*AppMainButtonDataUtils.getInstance().handleButtonData(this, mMainPageDefaultButtonData.get(position))*/
+                /*AppMainButtonDataUtils.getInstance().handleButtonData(this, mMainPageDefaultButtonData.get(position))*/
         );
         mMainRecyclerViewAdapter.setOnItemLongClickListener((view, position) ->
-            Toast.makeText(MainActivity.this, "OnItemLongClick  position :" + position, Toast.LENGTH_SHORT).show()
+                Toast.makeText(MainActivity.this, "OnItemLongClick  position :" + position, Toast.LENGTH_SHORT).show()
         );
     }
 

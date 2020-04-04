@@ -24,7 +24,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
-import com.org.appconstant.HomeButtonTypeContentKotlin;
 
 import java.io.Serializable;
 import java.util.List;
@@ -255,7 +254,7 @@ public class MenuManagerActivity extends BaseActivity{
 
     public void addMenuItem(MenuResourceData resourceData) {
         mainList.add(resourceData);
-        AppApplication.getInstance().saveObject((Serializable) mainList, HomeButtonTypeContentKotlin.INSTANCE.getTYPE_MAIN_BUTTON_DATA());
+        AppApplication.getInstance().saveObject((Serializable) mainList, HomeButtonTypeContent.TYPE_MAIN_BUTTON_DATA);
         outterLoop:
         for (int i = 0; i < allList.size(); i++) {
             List<MenuResourceData> child = allList.get(i).getChild();

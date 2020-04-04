@@ -7,7 +7,6 @@ import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.org.appconstant.HomeButtonTypeContentKotlin;
 
 import org.x5webview.utils.WebViewsUtils;
 
@@ -17,6 +16,7 @@ import java.util.Collections;
 import java.util.List;
 
 import blackbird.com.recyclerviewdemo.HomeActivity;
+import blackbird.com.recyclerviewdemo.HomeButtonTypeContent;
 import blackbird.com.recyclerviewdemo.MainActivity;
 import blackbird.com.recyclerviewdemo.MenuManagerActivity;
 import blackbird.com.recyclerviewdemo.R;
@@ -42,7 +42,7 @@ public class AppMainButtonDataUtils {
      * 获取全部按钮数据【本地数据+网络数据】
      */
     public List<MenuGroupResourceData> getAllFunctionButton() {
-        List<MenuGroupResourceData> list = (List<MenuGroupResourceData>) AppApplication.getInstance().readObject(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_ALL_BUTTON_DATA());
+        List<MenuGroupResourceData> list = (List<MenuGroupResourceData>) AppApplication.getInstance().readObject(HomeButtonTypeContent.TYPE_ALL_BUTTON_DATA);
         if (list == null || list.size() < 1) {
             list = getLoacalAllButtonData();
         }
@@ -57,20 +57,20 @@ public class AppMainButtonDataUtils {
     public void handleButtonData(Activity mContext,MenuResourceData mMenuResourceData){
         String type = mMenuResourceData.getBtnType();
         Intent intent = null;
-        if (type.equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_CLASS_J_ACTIVITY())) {
+        if (type.equals(HomeButtonTypeContent.TYPE_LOCAL_CLASS_J_ACTIVITY)) {
             intent = new Intent();
             intent.setClass(mContext, mMenuResourceData.getClazz());
             mContext.startActivityForResult(intent, MainActivity.BTN_MENU_REQUEST_CODE);
-        } else if (type.equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_CLASS_J_ACTIVITY())) {
+        } else if (type.equals(HomeButtonTypeContent.TYPE_URL_CLASS_J_ACTIVITY)) {
             intent = new Intent();
             intent.setClassName(mContext.getPackageName(), mMenuResourceData.getActyName());
             mContext.startActivity(intent);
-        } else if (type.equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_STRING_J_ACTIVITY())) {
+        } else if (type.equals(HomeButtonTypeContent.TYPE_LOCAL_STRING_J_ACTIVITY)) {
             intent = new Intent(mMenuResourceData.getDescription());
             mContext.startActivityForResult(intent, MainActivity.BTN_MENU_RESULT_CODE);
-        } else if (type.equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_J_WEBVIEW_H5())) {
+        } else if (type.equals(HomeButtonTypeContent.TYPE_URL_J_WEBVIEW_H5)) {
             WebViewsUtils.startWebView(mContext, mMenuResourceData.getContentUrl());
-        } else if (type.equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_SKIP_APP()) || type.equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_SKIP_APP())) {
+        } else if (type.equals(HomeButtonTypeContent.TYPE_LOCAL_SKIP_APP) || type.equals(HomeButtonTypeContent.TYPE_URL_SKIP_APP)) {
             skipThridApp(mContext, mMenuResourceData);
         } else {
             //Other Type  TO DO
@@ -87,11 +87,11 @@ public class AppMainButtonDataUtils {
         List<MenuCustomContent> customContent = mMenuResourceData.getCustomContent();
         String downPath = null,actyNames = null,packageNames = null;
         for (MenuCustomContent mMenuCustomContent : customContent)
-            if (mMenuCustomContent.getCustomKey().equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_START_ACTIVITY())) {
+            if (mMenuCustomContent.getCustomKey().equals(HomeButtonTypeContent.TYPE_SKIP_APP_START_ACTIVITY)) {
                 actyNames = mMenuCustomContent.getCustomValue();
-            } else if (mMenuCustomContent.getCustomKey().equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_PACKAGE_NAME())) {
+            } else if (mMenuCustomContent.getCustomKey().equals(HomeButtonTypeContent.TYPE_SKIP_APP_PACKAGE_NAME)) {
                 packageNames = mMenuCustomContent.getCustomValue();
-            } else if (mMenuCustomContent.getCustomKey().equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_DOWN_LOAD_PATH()))
+            } else if (mMenuCustomContent.getCustomKey().equals(HomeButtonTypeContent.TYPE_SKIP_APP_DOWN_LOAD_PATH))
                 downPath = mMenuCustomContent.getCustomValue();
         try {
             Intent intent=null;
@@ -136,25 +136,25 @@ public class AppMainButtonDataUtils {
     public List<MenuResourceData> getMainButtonData() {
         List<MenuResourceData> allList = null;
         try {
-            allList = (List<MenuResourceData>) AppApplication.getInstance().readObject(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_MAIN_BUTTON_DATA());
+            allList = (List<MenuResourceData>) AppApplication.getInstance().readObject(HomeButtonTypeContent.TYPE_MAIN_BUTTON_DATA);
         } catch (Exception e) {
         }
         if (allList == null || allList.size() < 1)
             allList = getMainPageDefaultButtonData();
-        allList.add(new MenuResourceData("更多", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_CLASS_J_ACTIVITY(), R.mipmap.function, MenuManagerActivity.class, 0));
+        allList.add(new MenuResourceData("更多", HomeButtonTypeContent.TYPE_LOCAL_CLASS_J_ACTIVITY, R.mipmap.function, MenuManagerActivity.class, 0));
         return allList;
     }
 
     public void saveMainFunctionButtonData(List<MenuResourceData> main) {
-        AppApplication.getInstance().saveObject((Serializable) main, HomeButtonTypeContentKotlin.INSTANCE.getTYPE_MAIN_BUTTON_DATA());
+        AppApplication.getInstance().saveObject((Serializable) main, HomeButtonTypeContent.TYPE_MAIN_BUTTON_DATA);
     }
 
     public void saveAllFunctionButtonData(List<MenuGroupResourceData> all) {
-        AppApplication.getInstance().saveObject((Serializable) all, HomeButtonTypeContentKotlin.INSTANCE.getTYPE_ALL_BUTTON_DATA());
+        AppApplication.getInstance().saveObject((Serializable) all, HomeButtonTypeContent.TYPE_ALL_BUTTON_DATA);
     }
 
     public void clearNetButtonResource() {
-        AppApplication.getInstance().delFileData(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_ALL_BUTTON_DATA());
+        AppApplication.getInstance().delFileData(HomeButtonTypeContent.TYPE_ALL_BUTTON_DATA);
     }
 
     public HomePageMianButtomChangeLintener listener;
@@ -171,18 +171,18 @@ public class AppMainButtonDataUtils {
      * 主页中默认是按钮
      */
     public List<MenuResourceData> getMainPageDefaultButtonData() {
-        MenuCustomContent wechatAty = new MenuCustomContent(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_START_ACTIVITY(), "com.tencent.mm.ui.LauncherUI");
-        MenuCustomContent wechatPkg = new MenuCustomContent(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_PACKAGE_NAME(), "com.tencent.mm");
-        MenuCustomContent wechatDownPath = new MenuCustomContent(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_DOWN_LOAD_PATH(), "http://imtt.dd.qq.com/16891/2C721C91F73FC503FAD6A503D941645D.apk?fsname=com.tencent.mm_6.5.23_1180.apk&amp");
+        MenuCustomContent wechatAty = new MenuCustomContent(HomeButtonTypeContent.TYPE_SKIP_APP_START_ACTIVITY, "com.tencent.mm.ui.LauncherUI");
+        MenuCustomContent wechatPkg = new MenuCustomContent(HomeButtonTypeContent.TYPE_SKIP_APP_PACKAGE_NAME, "com.tencent.mm");
+        MenuCustomContent wechatDownPath = new MenuCustomContent(HomeButtonTypeContent.TYPE_SKIP_APP_DOWN_LOAD_PATH, "http://imtt.dd.qq.com/16891/2C721C91F73FC503FAD6A503D941645D.apk?fsname=com.tencent.mm_6.5.23_1180.apk&amp");
         List<MenuCustomContent> wechat = creatArrayList(wechatAty, wechatPkg, wechatDownPath);
-        MenuResourceData wechats = new MenuResourceData("微信", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_SKIP_APP(), wechat, R.mipmap.icon_wechat, "10", HomeButtonTypeContentKotlin.INSTANCE.getLOCAL_TYPE());
-        MenuResourceData setting = new MenuResourceData("系统设置", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_STRING_J_ACTIVITY(), R.mipmap.filechooser, Settings.ACTION_SETTINGS, HomeButtonTypeContentKotlin.INSTANCE.getLOCAL_TYPE());
-        MenuResourceData activty = new MenuResourceData("Activty", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_CLASS_J_ACTIVITY(), R.mipmap.ic_launcher_round, HomeActivity.class, HomeButtonTypeContentKotlin.INSTANCE.getLOCAL_TYPE());
-        MenuResourceData baidu = new MenuResourceData("百度一下", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_J_WEBVIEW_H5(), "https://www.baidu.com/", R.mipmap.tbsvideo, HomeButtonTypeContentKotlin.INSTANCE.getLOCAL_TYPE());
-        MenuCustomContent smartActy = new MenuCustomContent(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_START_ACTIVITY(), "com.alk.activity.StartActivity");
-        MenuCustomContent smartPckg = new MenuCustomContent(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_PACKAGE_NAME(), "com.alk.smart");
-        MenuCustomContent smartDownPath = new MenuCustomContent(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_DOWN_LOAD_PATH(), "http://39.108.105.41:8080/download/smarthome20171025.apk");
-        MenuResourceData smart = new MenuResourceData("智能家居", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_SKIP_APP(), creatArrayList(smartActy, smartPckg, smartDownPath), R.mipmap.tbsweb, HomeButtonTypeContentKotlin.INSTANCE.getLOCAL_TYPE());
+        MenuResourceData wechats = new MenuResourceData("微信", HomeButtonTypeContent.TYPE_LOCAL_SKIP_APP, wechat, R.mipmap.icon_wechat, "10", HomeButtonTypeContent.LOCAL_TYPE);
+        MenuResourceData setting = new MenuResourceData("系统设置", HomeButtonTypeContent.TYPE_LOCAL_STRING_J_ACTIVITY, R.mipmap.filechooser, Settings.ACTION_SETTINGS, HomeButtonTypeContent.LOCAL_TYPE);
+        MenuResourceData activty = new MenuResourceData("Activty", HomeButtonTypeContent.TYPE_LOCAL_CLASS_J_ACTIVITY, R.mipmap.ic_launcher_round, HomeActivity.class, HomeButtonTypeContent.LOCAL_TYPE);
+        MenuResourceData baidu = new MenuResourceData("百度一下", HomeButtonTypeContent.TYPE_URL_J_WEBVIEW_H5, "https://www.baidu.com/", R.mipmap.tbsvideo, HomeButtonTypeContent.LOCAL_TYPE);
+        MenuCustomContent smartActy = new MenuCustomContent(HomeButtonTypeContent.TYPE_SKIP_APP_START_ACTIVITY, "com.alk.activity.StartActivity");
+        MenuCustomContent smartPckg = new MenuCustomContent(HomeButtonTypeContent.TYPE_SKIP_APP_PACKAGE_NAME, "com.alk.smart");
+        MenuCustomContent smartDownPath = new MenuCustomContent(HomeButtonTypeContent.TYPE_SKIP_APP_DOWN_LOAD_PATH, "http://39.108.105.41:8080/download/smarthome20171025.apk");
+        MenuResourceData smart = new MenuResourceData("智能家居", HomeButtonTypeContent.TYPE_LOCAL_SKIP_APP, creatArrayList(smartActy, smartPckg, smartDownPath), R.mipmap.tbsweb, HomeButtonTypeContent.LOCAL_TYPE);
         return creatArrayList(wechats, setting, activty, baidu, smart);
     }
 
@@ -190,10 +190,10 @@ public class AppMainButtonDataUtils {
      * 本地全部按钮数据
      */
     public List<MenuGroupResourceData> getLoacalAllButtonData() {
-        MenuGroupResourceData thirdApp = new MenuGroupResourceData(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_LIST_TYPE_THRID(), HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_LIST_NAME_THRID(), getLocalThirdAppList());
-        MenuGroupResourceData webView = new MenuGroupResourceData(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_LIST_TYPE_WEB(), HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_LIST_NAME_WEB(), getLocalWebViewList());
-        MenuGroupResourceData other = new MenuGroupResourceData(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_LIST_TYPE_OTHER(), HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_LIST_NAME_OTHER(), getLocaloOtherList());
-        MenuGroupResourceData setting = new MenuGroupResourceData(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_LIST_TYPE_SET(), HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_LIST_NAME_SET(), getLocaloSettingList());
+        MenuGroupResourceData thirdApp = new MenuGroupResourceData(HomeButtonTypeContent.TYPE_LOCAL_LIST_TYPE_THRID, HomeButtonTypeContent.TYPE_LOCAL_LIST_NAME_THRID, getLocalThirdAppList());
+        MenuGroupResourceData webView = new MenuGroupResourceData(HomeButtonTypeContent.TYPE_LOCAL_LIST_TYPE_WEB, HomeButtonTypeContent.TYPE_LOCAL_LIST_NAME_WEB, getLocalWebViewList());
+        MenuGroupResourceData other = new MenuGroupResourceData(HomeButtonTypeContent.TYPE_LOCAL_LIST_TYPE_OTHER, HomeButtonTypeContent.TYPE_LOCAL_LIST_NAME_OTHER, getLocaloOtherList());
+        MenuGroupResourceData setting = new MenuGroupResourceData(HomeButtonTypeContent.TYPE_LOCAL_LIST_TYPE_SET, HomeButtonTypeContent.TYPE_LOCAL_LIST_NAME_SET, getLocaloSettingList());
         return creatArrayList(thirdApp, webView, other,setting);
     }
 
@@ -204,15 +204,15 @@ public class AppMainButtonDataUtils {
      * @return 跳转第三方APP
      */
     public List<MenuResourceData> getLocalThirdAppList() {
-        MenuCustomContent wechatAty = new MenuCustomContent(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_START_ACTIVITY(), "com.tencent.mm.ui.LauncherUI");
-        MenuCustomContent wechatPkg = new MenuCustomContent(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_PACKAGE_NAME(), "com.tencent.mm");
-        MenuCustomContent wechatDownPath = new MenuCustomContent(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_DOWN_LOAD_PATH(), "http://imtt.dd.qq.com/16891/2C721C91F73FC503FAD6A503D941645D.apk?fsname=com.tencent.mm_6.5.23_1180.apk&amp");
+        MenuCustomContent wechatAty = new MenuCustomContent(HomeButtonTypeContent.TYPE_SKIP_APP_START_ACTIVITY, "com.tencent.mm.ui.LauncherUI");
+        MenuCustomContent wechatPkg = new MenuCustomContent(HomeButtonTypeContent.TYPE_SKIP_APP_PACKAGE_NAME, "com.tencent.mm");
+        MenuCustomContent wechatDownPath = new MenuCustomContent(HomeButtonTypeContent.TYPE_SKIP_APP_DOWN_LOAD_PATH, "http://imtt.dd.qq.com/16891/2C721C91F73FC503FAD6A503D941645D.apk?fsname=com.tencent.mm_6.5.23_1180.apk&amp");
         List<MenuCustomContent> wechat = creatArrayList(wechatAty, wechatPkg, wechatDownPath);
-        MenuResourceData wechats = new MenuResourceData("微信", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_SKIP_APP(), wechat, R.mipmap.icon_wechat, "有好东西奥", HomeButtonTypeContentKotlin.INSTANCE.getLOCAL_TYPE());
-        MenuCustomContent smartActy = new MenuCustomContent(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_START_ACTIVITY(), "com.alk.activity.StartActivity");
-        MenuCustomContent smartPckg = new MenuCustomContent(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_PACKAGE_NAME(), "com.alk.smart");
-        MenuCustomContent smartDownPath = new MenuCustomContent(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_DOWN_LOAD_PATH(), "http://39.108.105.41:8080/download/smarthome20171025.apk");
-        MenuResourceData smart = new MenuResourceData("智能家居", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_SKIP_APP(), creatArrayList(smartActy, smartPckg, smartDownPath), R.mipmap.tbsweb, HomeButtonTypeContentKotlin.INSTANCE.getLOCAL_TYPE());
+        MenuResourceData wechats = new MenuResourceData("微信", HomeButtonTypeContent.TYPE_LOCAL_SKIP_APP, wechat, R.mipmap.icon_wechat, "有好东西奥", HomeButtonTypeContent.LOCAL_TYPE);
+        MenuCustomContent smartActy = new MenuCustomContent(HomeButtonTypeContent.TYPE_SKIP_APP_START_ACTIVITY, "com.alk.activity.StartActivity");
+        MenuCustomContent smartPckg = new MenuCustomContent(HomeButtonTypeContent.TYPE_SKIP_APP_PACKAGE_NAME, "com.alk.smart");
+        MenuCustomContent smartDownPath = new MenuCustomContent(HomeButtonTypeContent.TYPE_SKIP_APP_DOWN_LOAD_PATH, "http://39.108.105.41:8080/download/smarthome20171025.apk");
+        MenuResourceData smart = new MenuResourceData("智能家居", HomeButtonTypeContent.TYPE_LOCAL_SKIP_APP, creatArrayList(smartActy, smartPckg, smartDownPath), R.mipmap.tbsweb, HomeButtonTypeContent.LOCAL_TYPE);
         return creatArrayList(wechats, smart);
     }
 
@@ -223,8 +223,8 @@ public class AppMainButtonDataUtils {
      * @return ButtonResourceDataInfo
      */
     public List<MenuResourceData> getLocalWebViewList() {
-        MenuResourceData baidu = new MenuResourceData("百度一下", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_J_WEBVIEW_H5(), "https://www.baidu.com/", R.mipmap.tbsvideo, "google", HomeButtonTypeContentKotlin.INSTANCE.getLOCAL_TYPE());
-        MenuResourceData soho = new MenuResourceData("搜狐", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_J_WEBVIEW_H5(), "http://www.sohu.com/", R.mipmap.filechooser, HomeButtonTypeContentKotlin.INSTANCE.getLOCAL_TYPE());
+        MenuResourceData baidu = new MenuResourceData("百度一下", HomeButtonTypeContent.TYPE_URL_J_WEBVIEW_H5, "https://www.baidu.com/", R.mipmap.tbsvideo, "google", HomeButtonTypeContent.LOCAL_TYPE);
+        MenuResourceData soho = new MenuResourceData("搜狐", HomeButtonTypeContent.TYPE_URL_J_WEBVIEW_H5, "http://www.sohu.com/", R.mipmap.filechooser, HomeButtonTypeContent.LOCAL_TYPE);
         return creatArrayList(baidu, soho);
     }
 
@@ -235,12 +235,12 @@ public class AppMainButtonDataUtils {
      * @return ButtonResourceDataInfo
      */
     public List<MenuResourceData> getLocaloOtherList() {
-        MenuResourceData activty = new MenuResourceData("Activty", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_CLASS_J_ACTIVITY(), R.mipmap.ic_launcher_round, HomeActivity.class, 0);
+        MenuResourceData activty = new MenuResourceData("Activty", HomeButtonTypeContent.TYPE_LOCAL_CLASS_J_ACTIVITY, R.mipmap.ic_launcher_round, HomeActivity.class, 0);
         return creatArrayList(activty);
     }
 
     public List<MenuResourceData> getLocaloSettingList(){
-        MenuResourceData setting = new MenuResourceData("系统设置", HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_STRING_J_ACTIVITY(), R.mipmap.filechooser, Settings.ACTION_SETTINGS, 0);
+        MenuResourceData setting = new MenuResourceData("系统设置", HomeButtonTypeContent.TYPE_LOCAL_STRING_J_ACTIVITY, R.mipmap.filechooser, Settings.ACTION_SETTINGS, 0);
         return creatArrayList(setting);
     }
 

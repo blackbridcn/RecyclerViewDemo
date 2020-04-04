@@ -10,10 +10,12 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.org.appconstant.HomeButtonTypeContentKotlin;
+
 
 import java.util.List;
 
+
+import blackbird.com.recyclerviewdemo.HomeButtonTypeContent;
 import blackbird.com.recyclerviewdemo.MainActivity;
 import blackbird.com.recyclerviewdemo.R;
 import blackbird.com.recyclerviewdemo.bean.MenuResourceData;
@@ -43,7 +45,7 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
     public void onBindViewHolder(MainRecyclerViewHolder holder, int position) {
         holder.itemView.setTag(position);
         MenuResourceData resourceData = MainActivity.mMainPageDefaultButtonData.get(position);
-        if (resourceData.getBtnType().equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_SKIP_APP()) || resourceData.getBtnType().equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_J_WEBVIEW_H5())) {
+        if (resourceData.getBtnType().equals(HomeButtonTypeContent.TYPE_URL_SKIP_APP) || resourceData.getBtnType().equals(HomeButtonTypeContent.TYPE_URL_J_WEBVIEW_H5)) {
            // Glide.with(mContext).load(resourceData.getIconUrl()).error(R.mipmap.ic_launcher).placeholder(R.mipmap.ic_launcher).into(holder.iv_item);
             Glide.with(mContext).load(resourceData.getIconUrl()).into(holder.iv_item);
         } else {

@@ -10,12 +10,13 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.org.appconstant.HomeButtonTypeContentKotlin;
+
 
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
+import blackbird.com.recyclerviewdemo.HomeButtonTypeContent;
 import blackbird.com.recyclerviewdemo.MenuManagerActivity;
 import blackbird.com.recyclerviewdemo.R;
 import blackbird.com.recyclerviewdemo.application.AppApplication;
@@ -49,8 +50,8 @@ public class DragRecyclerViewAdapter extends RecyclerView.Adapter<DragRecyclerVi
         holder.itemView.setTag(position);
         final MenuResourceData resourceData = mainList.get(position);
         holder.name_tv.setText(resourceData.getTitle());
-        if (resourceData.getBtnType().equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_J_WEBVIEW_H5()) || resourceData.getBtnType().equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_SKIP_APP())
-                || resourceData.getBtnType().equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_CLASS_J_ACTIVITY())) {
+        if (resourceData.getBtnType().equals(HomeButtonTypeContent.TYPE_URL_J_WEBVIEW_H5) || resourceData.getBtnType().equals(HomeButtonTypeContent.TYPE_URL_SKIP_APP)
+                || resourceData.getBtnType().equals(HomeButtonTypeContent.TYPE_URL_CLASS_J_ACTIVITY)) {
             Glide.with(mContext)
                     .load(resourceData.getIconUrl())
                     .into(holder.icon_bg);
@@ -68,13 +69,13 @@ public class DragRecyclerViewAdapter extends RecyclerView.Adapter<DragRecyclerVi
         holder.delete_Img.setOnClickListener((view)->{
                 mContext.deletMeunItem(resourceData);
                 mainList.remove(position);
-                AppApplication.getInstance().saveObject((Serializable) mainList, HomeButtonTypeContentKotlin.INSTANCE.getTYPE_MAIN_BUTTON_DATA());
+                AppApplication.getInstance().saveObject((Serializable) mainList, HomeButtonTypeContent.TYPE_MAIN_BUTTON_DATA);
         });
         holder.container.setOnClickListener((view)->{
                 if (isEdit) {
                     mContext.deletMeunItem(resourceData);
                     mainList.remove(position);
-                    AppApplication.getInstance().saveObject((Serializable) mainList, HomeButtonTypeContentKotlin.INSTANCE.getTYPE_MAIN_BUTTON_DATA());
+                    AppApplication.getInstance().saveObject((Serializable) mainList, HomeButtonTypeContent.TYPE_MAIN_BUTTON_DATA);
                 }
         });
     }
@@ -95,7 +96,7 @@ public class DragRecyclerViewAdapter extends RecyclerView.Adapter<DragRecyclerVi
                 Collections.swap(mainList, i, i - 1);
             }
         }
-        AppApplication.getInstance().saveObject((Serializable) mainList, HomeButtonTypeContentKotlin.INSTANCE.getTYPE_MAIN_BUTTON_DATA());
+        AppApplication.getInstance().saveObject((Serializable) mainList, HomeButtonTypeContent.TYPE_MAIN_BUTTON_DATA);
         this.notifyItemMoved(fromPosition, toPosition);
     }
 

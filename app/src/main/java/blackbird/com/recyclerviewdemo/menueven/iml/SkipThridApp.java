@@ -5,10 +5,10 @@ import android.app.AlertDialog;
 import android.app.DialogFragment;
 import android.widget.Toast;
 
-import com.org.appconstant.HomeButtonTypeContentKotlin;
 
 import java.util.List;
 
+import blackbird.com.recyclerviewdemo.HomeButtonTypeContent;
 import blackbird.com.recyclerviewdemo.R;
 import blackbird.com.recyclerviewdemo.bean.MenuCustomContent;
 import blackbird.com.recyclerviewdemo.bean.MenuResourceData;
@@ -33,11 +33,11 @@ public class SkipThridApp implements MenuClickStrategy {
         List<MenuCustomContent> customContent = mMenuResourceData.getCustomContent();
         String downPath = null, actyNames = null, packageNames = null;
         for (MenuCustomContent mMenuCustomContent : customContent)
-            if (mMenuCustomContent.getCustomKey().equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_START_ACTIVITY())) {
+            if (mMenuCustomContent.getCustomKey().equals(HomeButtonTypeContent.TYPE_SKIP_APP_START_ACTIVITY)) {
                 actyNames = mMenuCustomContent.getCustomValue();
-            } else if (mMenuCustomContent.getCustomKey().equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_PACKAGE_NAME())) {
+            } else if (mMenuCustomContent.getCustomKey().equals(HomeButtonTypeContent.TYPE_SKIP_APP_PACKAGE_NAME)) {
                 packageNames = mMenuCustomContent.getCustomValue();
-            } else if (mMenuCustomContent.getCustomKey().equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_SKIP_APP_DOWN_LOAD_PATH()))
+            } else if (mMenuCustomContent.getCustomKey().equals(HomeButtonTypeContent.TYPE_SKIP_APP_DOWN_LOAD_PATH))
                 downPath = mMenuCustomContent.getCustomValue();
         boolean skipApk = IntentUtils.skipThridApkActivity(mContext, packageNames, actyNames);
         if (!skipApk) {

@@ -3,7 +3,8 @@ package blackbird.com.recyclerviewdemo;
 import android.content.Context;
 
 import com.alibaba.fastjson.JSON;
-import com.org.appconstant.HomeButtonTypeContentKotlin;
+
+
 
 import java.util.LinkedList;
 import java.util.List;
@@ -54,13 +55,13 @@ public class NetDataTask implements Runnable {
         List<MenuGroupResourceData> loacalData = AppMainButtonDataUtils.getInstance().getLoacalAllButtonData();
         for (MenuGroupResourceData info : infos) {
             if (info.getCategory() == null) continue;
-            if (info.getCategory().equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_LIST_TYPE_THRID()))
+            if (info.getCategory().equals(HomeButtonTypeContent.TYPE_LOCAL_LIST_TYPE_THRID))
                 parseNetDataToLocal(info.getChild(), loacalData, 0);
-            else if (info.getCategory().equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_LIST_TYPE_WEB()))
+            else if (info.getCategory().equals(HomeButtonTypeContent.TYPE_LOCAL_LIST_TYPE_WEB))
                 parseNetDataToLocal(info.getChild(), loacalData, 1);
-            else if (info.getCategory().equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_LIST_TYPE_OTHER()))
+            else if (info.getCategory().equals(HomeButtonTypeContent.TYPE_LOCAL_LIST_TYPE_OTHER))
                 parseNetDataToLocal(info.getChild(), loacalData, 2);
-            else if(info.getCategory().equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_LIST_TYPE_SET()))
+            else if(info.getCategory().equals(HomeButtonTypeContent.TYPE_LOCAL_LIST_TYPE_SET))
                 parseNetDataToLocal(info.getChild(), loacalData, 3);
             else
                 loacalData.add(info);
@@ -83,7 +84,7 @@ public class NetDataTask implements Runnable {
         int size = main.size();
         for (int i = 0; i < size; i++) {
             MenuResourceData data = main.get(i);
-            if (data.getType() == HomeButtonTypeContentKotlin.INSTANCE.getSERVER_TYPE())
+            if (data.getType() == HomeButtonTypeContent.SERVER_TYPE)
                 for (int j = 0; j < tmpSize; j++) {
                     boolean b = all.get(j).getTitle().equals(data.getTitle());
                     if (b)

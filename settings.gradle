@@ -1,1 +1,2 @@
 include ':app', ':x5viewmodel'
+include ':aspectj'

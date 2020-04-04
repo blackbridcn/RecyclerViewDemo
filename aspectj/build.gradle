@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'com.hujiang.android-aspectjx'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
@@ -24,13 +25,16 @@ android {
         sourceCompatibility = rootProject.ext.android["sourceCompatibility"]
         targetCompatibility = rootProject.ext.android["targetCompatibility"]
     }
+
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //引入aspectj的依赖
+    api 'org.aspectj:aspectjrt:1.8.14'
 
-    implementation files('libs/tbs_sdk_thirdapp_v3.2.0.1104_43200_sharewithdownload_withfilereader_withoutGame_obfs_20170609_115346.jar')
+    compileOnly rootProject.ext.dependencies["lombok"]
+    annotationProcessor rootProject.ext.dependencies["lombok-compiler"]
 }
-repositories {
-    mavenCentral()
-}
+
+
+

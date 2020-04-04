@@ -13,10 +13,10 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.org.appconstant.HomeButtonTypeContentKotlin;
 
 import java.util.List;
 
+import blackbird.com.recyclerviewdemo.HomeButtonTypeContent;
 import blackbird.com.recyclerviewdemo.MenuManagerActivity;
 import blackbird.com.recyclerviewdemo.R;
 import blackbird.com.recyclerviewdemo.bean.MenuResourceData;
@@ -53,8 +53,8 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerVi
         }
         final MenuResourceData resourceData = resourceDataList.get(position);
         String btnType = resourceData.getBtnType();
-        if (btnType.equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_CLASS_J_ACTIVITY()) || btnType.equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_SKIP_APP())
-                || btnType.equals(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_J_WEBVIEW_H5())) {
+        if (btnType.equals(HomeButtonTypeContent.TYPE_URL_CLASS_J_ACTIVITY) || btnType.equals(HomeButtonTypeContent.TYPE_URL_SKIP_APP)
+                || btnType.equals(HomeButtonTypeContent.TYPE_URL_J_WEBVIEW_H5)) {
             Glide.with(mActvity).load(resourceData.getIconUrl()).into(holder.item_btn_bg_img);
         } else
             holder.item_btn_bg_img.setImageResource(resourceData.getIconRes());

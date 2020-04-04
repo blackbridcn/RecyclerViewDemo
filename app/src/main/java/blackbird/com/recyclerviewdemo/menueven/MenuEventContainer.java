@@ -1,10 +1,10 @@
 package blackbird.com.recyclerviewdemo.menueven;
 
-import com.org.appconstant.HomeButtonTypeContentKotlin;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import blackbird.com.recyclerviewdemo.HomeButtonTypeContent;
 import blackbird.com.recyclerviewdemo.menueven.iml.LocalClassActivity;
 import blackbird.com.recyclerviewdemo.menueven.iml.SkipThridApp;
 import blackbird.com.recyclerviewdemo.menueven.iml.StartToWebAcivity;
@@ -17,9 +17,9 @@ public class MenuEventContainer {
     public static void init() {
         if (menuMap == null) {
             menuMap = new HashMap<>();
-            menuMap.put(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_CLASS_J_ACTIVITY(), new LocalClassActivity());
-            menuMap.put(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_LOCAL_SKIP_APP(), new SkipThridApp());
-            menuMap.put(HomeButtonTypeContentKotlin.INSTANCE.getTYPE_URL_J_WEBVIEW_H5(), new StartToWebAcivity());
+            menuMap.put(HomeButtonTypeContent.TYPE_LOCAL_CLASS_J_ACTIVITY, new LocalClassActivity());
+            menuMap.put(HomeButtonTypeContent.TYPE_LOCAL_SKIP_APP, new SkipThridApp());
+            menuMap.put(HomeButtonTypeContent.TYPE_URL_J_WEBVIEW_H5, new StartToWebAcivity());
         }
     }
 
