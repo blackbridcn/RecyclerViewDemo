@@ -1,9 +1,16 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 //引入aspectj插件
-apply plugin: 'com.hujiang.android-aspectjx'
+//apply plugin: 'com.hujiang.android-aspectjx'
 android {
+
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
     buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+
+    dataBinding {
+        enabled = true
+    }
 
     defaultConfig {
         applicationId "blackbird.com.recyclerviewdemo"
@@ -13,6 +20,8 @@ android {
         versionCode rootProject.ext.android["libVerCode"]
         versionName rootProject.ext.android["libVerName"]
 
+
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -55,12 +64,12 @@ dependencies {
     //jetbrain注解
     api rootProject.ext.dependencies["jetbAnnotations"]
     //引入aspectj的依赖
-    api 'org.aspectj:aspectjrt:1.8.14'
+    //api 'org.aspectj:aspectjrt:1.8.14'
     //butterknife
     implementation 'com.jakewharton:butterknife:10.2.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
     //dagger2
-    compile 'com.google.dagger:dagger:2.9'
+    compile 'com.google.dagger:dagger:2.15'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.9'
     //java注解
     compile 'org.glassfish:javax.annotation:10.0-b28'
@@ -74,6 +83,8 @@ dependencies {
     implementation project(path: ':aspectj')
 
 
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.percentlayout:percentlayout:1.0.0'
     /*rx-android-java*/
     api 'com.trello:rxlifecycle:1.0'
     api 'com.trello:rxlifecycle-components:1.0'

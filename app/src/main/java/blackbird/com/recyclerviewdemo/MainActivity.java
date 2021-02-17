@@ -5,7 +5,6 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
-
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +13,6 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import org.aop.annotation.Trace;
 
@@ -26,6 +24,7 @@ import blackbird.com.recyclerviewdemo.menueven.MenuClickEventContext;
 import blackbird.com.recyclerviewdemo.uitls.AppMainButtonDataUtils;
 import blackbird.com.recyclerviewdemo.uitls.DataCleanManager;
 import blackbird.com.recyclerviewdemo.uitls.ThreadPool;
+import blackbird.com.simple.acvm.ViewModelActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -60,7 +59,7 @@ public class MainActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.load_mian_btn, R.id.clear_cache_btn})
+    @OnClick({R.id.load_mian_btn, R.id.clear_cache_btn, R.id.miv, R.id.vmda})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.load_mian_btn:
@@ -82,6 +81,19 @@ public class MainActivity extends BaseActivity {
                     intent.setData(Uri.parse(url));
                     startActivity(intent);
                 }
+
+                break;
+
+            case R.id.miv:
+                startActivity(new Intent(this, ViewModelActivity.class));
+
+                break;
+
+            case R.id.vmda:
+                startActivity(new Intent(this, ViewModelActivity.class));
+                break;
+
+            case R.id.vmdrl:
 
                 break;
         }

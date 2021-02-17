@@ -45,7 +45,6 @@ public class NetworkConnectChangedReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.e("TAG", "onReceive: ----------------- > " + intent.getAction());
         if (intent.getAction() == ConnectivityManager.CONNECTIVITY_ACTION) {
             /*判断当前网络时候可用以及网络类型*/
             boolean isConnected = NetworkUtils.isConnected(context);

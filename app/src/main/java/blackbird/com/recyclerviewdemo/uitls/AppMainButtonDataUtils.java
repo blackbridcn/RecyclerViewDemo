@@ -7,7 +7,6 @@ import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
 
-
 import org.x5webview.utils.WebViewsUtils;
 
 import java.io.Serializable;

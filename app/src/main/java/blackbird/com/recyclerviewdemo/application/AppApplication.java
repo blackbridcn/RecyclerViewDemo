@@ -4,7 +4,8 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
+
+import androidx.multidex.MultiDex;
 
 import org.x5webview.utils.WebViewsUtils;
 
@@ -64,6 +65,7 @@ public class AppApplication extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
+        MultiDex.install(this);
         registerModules();
         registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
             @Override

@@ -1,7 +1,5 @@
 package org.aop.aspect;
 
-import org.aspectj.lang.annotation.Pointcut;
-
 /**
  * File: PermissionAspect.java
  * Author: yuzhuzhang
@@ -15,7 +13,7 @@ public class PermissionAspect {
 
 
     private static final String METHOD_PERMISSION="execution(@org.aop.annotation.Permission * *(..))";
-    @Pointcut(METHOD_PERMISSION)
+    //@Pointcut(METHOD_PERMISSION)
     public void MethodPermissinRequset() {
 
 
