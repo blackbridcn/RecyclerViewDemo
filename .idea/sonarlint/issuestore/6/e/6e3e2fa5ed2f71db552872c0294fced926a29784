@@ -1,0 +1,17 @@
+
+o
+java:S1450"RRemove the "tv2" field and declare it as a local variable in the relevant methods.(ò™ª8ğ„İÇŒ.
+>
+java:S1659"!Declare "tv2" on a separate line.(ò™ª8ğ„İÇŒ.
+>
+java:S11165"Remove this empty statement.(ôŸìúÿÿÿÿ8ğ„İÇŒ.
+Q
+java:S1068"/Remove this unused "FONT_FARR_7" private field.(¨ÜŞêûÿÿÿÿ8ğ„İÇŒ.
+o
+java:S1450"RRemove the "tv1" field and declare it as a local variable in the relevant methods.(ò™ª8ğ„İÇŒ.
+y
+java:S1450"WRemove the "typeface" field and declare it as a local variable in the relevant methods.(‰ƒÔåÿÿÿÿÿ8ğ„İÇŒ.
+P
+java:S1481L"3Remove this unused "packageManager" local variable.(¶í8ğ„İÇŒ.
+m
+java:S1301,"KReplace this "switch" statement by "if" statements to increase readability.(ıŞ³‹ùÿÿÿÿ8ğ„İÇŒ.
