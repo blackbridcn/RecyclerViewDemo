@@ -2,15 +2,14 @@ apply plugin: 'com.android.library'
 
 
 android {
-    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
-    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+    compileSdk = 35
 
     defaultConfig {
-        minSdkVersion rootProject.ext.android["minSdkVersion"]
-        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
-
-        versionCode rootProject.ext.android["libVerCode"]
-        versionName rootProject.ext.android["libVerName"]
+        minSdk = 24
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0"
 
     }
 
@@ -21,9 +20,10 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = rootProject.ext.android["sourceCompatibility"]
-        targetCompatibility = rootProject.ext.android["targetCompatibility"]
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
+    namespace 'blackbird.com.x5viewmodel'
 }
 
 dependencies {

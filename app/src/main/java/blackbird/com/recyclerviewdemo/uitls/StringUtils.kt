@@ -43,7 +43,7 @@ class StringUtils private constructor() {
         @JvmStatic
         fun equals(a: CharSequence?, b: CharSequence?): Boolean {
             if (a === b) return true
-            var length: Int
+            var length: Int=0
             return if (a != null && b != null && a.length.also { length = it } == b.length) {
                 if (a is String && b is String) {
                     a == b
@@ -82,12 +82,12 @@ class StringUtils private constructor() {
          * @param s 待转字符串
          * @return 首字母大写字符串
          */
-        fun upperFirstLetter(s: String): String {
+    /*    fun upperFirstLetter(s: String): String {
             if (isEmpty(s) || !Character.isLowerCase(s[0])) {
                 return s
             }
             return (s[0].toInt() - 32) as Char.toString() + s.substring(1)
-        }
+        }*/
 
         /**
          * 首字母小写
@@ -95,12 +95,12 @@ class StringUtils private constructor() {
          * @param s 待转字符串
          * @return 首字母小写字符串
          */
-        fun lowerFirstLetter(s: String): String {
+        /*fun lowerFirstLetter(s: String): String {
             if (isEmpty(s) || !Character.isUpperCase(s[0])) {
                 return s
             }
             return (s[0].toInt() + 32) as Char.toString() + s.substring(1)
-        }
+        }*/
 
         /**
          * 反转字符串
@@ -128,7 +128,7 @@ class StringUtils private constructor() {
          * @param s 待转字符串
          * @return 半角字符串
          */
-        fun toDBC(s: String): String {
+      /*  fun toDBC(s: String): String {
             if (isEmpty(s)) {
                 return s
             }
@@ -146,7 +146,7 @@ class StringUtils private constructor() {
                 i++
             }
             return String(chars)
-        }
+        }*/
 
         /**
          * 转化为全角字符
@@ -154,7 +154,7 @@ class StringUtils private constructor() {
          * @param s 待转字符串
          * @return 全角字符串
          */
-        fun toSBC(s: String): String {
+    /*    fun toSBC(s: String): String {
             if (isEmpty(s)) {
                 return s
             }
@@ -172,7 +172,7 @@ class StringUtils private constructor() {
                 i++
             }
             return String(chars)
-        }
+        }*/
 
         private val pyValue = intArrayOf(-20319, -20317, -20304, -20295, -20292, -20283, -20265, -20257, -20242,
                 -20230, -20051, -20036, -20032,
@@ -302,7 +302,8 @@ class StringUtils private constructor() {
             if (ascii == -1) return null
             var ret: String? = null
             if (0 <= ascii && ascii <= 127) {
-                ret = ascii as Char.toString()
+               // ret = ascii as Char.toString()
+                //ret = ascii as Char.toString()
             } else {
                 for (i in pyValue.indices.reversed()) {
                     if (pyValue[i] <= ascii) {

@@ -39,37 +39,37 @@ import blackbird.com.recyclerviewdemo.uitls.CollectionUtls;
 import blackbird.com.recyclerviewdemo.uitls.StringUtils;
 import blackbird.com.recyclerviewdemo.uitls.drag_recycleview.OnRecyclerItemClickListener;
 import blackbird.com.recyclerviewdemo.uitls.drag_recycleview.RecyclerViewItemTouchCallback;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+
 
 public class MenuManagerActivity extends BaseActivity{
 
-    @BindView(R.id.left_image)
+
     ImageView leftImage;
-    @BindView(R.id.left_textview)
+
     TextView leftTextview;
-    @BindView(R.id.left_button)
+
     RelativeLayout leftButton;
-    @BindView(R.id.title_text)
+
     TextView titleText;
-    @BindView(R.id.right_imge)
+
     ImageView rightImge;
-    @BindView(R.id.right_textview)
+
     TextView rightTextview;
-    @BindView(R.id.right_button)
+
     RelativeLayout rightButton;
-    @BindView(R.id.top_actionbar)
+
     RelativeLayout topActionbar;
-    @BindView(R.id.recyclerview_drage)
+
     RecyclerView recyclerviewDrage;
-    @BindView(R.id.topLayout)
+
     LinearLayout topLayout;
-    @BindView(R.id.tab_layout)
+
     TabLayout tabLayout;
-    @BindView(R.id.recycler_view)
+
     RecyclerView recyclerView;
+    
     public List<MenuResourceData> mainList;
-/*    @BindView(R.id.app_bar)
+/*    =findViewById(R.id.app_bar)
     AppBarLayout appBar;*/
 
     private List<MenuGroupResourceData> allList;
@@ -85,7 +85,7 @@ public class MenuManagerActivity extends BaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mian);
-        ButterKnife.bind(this);
+    
         initUI();
         initData();
         initDrageRecyclerView();
@@ -103,6 +103,26 @@ public class MenuManagerActivity extends BaseActivity{
 
 
     private void initUI() {
+
+        leftImage =findViewById(R.id.left_image);
+
+        leftTextview =findViewById(R.id.left_textview) ;
+        leftButton=findViewById(R.id.left_button);
+        titleText=findViewById(R.id.title_text);
+        rightImge=findViewById(R.id.right_imge);
+        rightTextview=findViewById(R.id.right_textview);
+
+        rightButton=findViewById(R.id.right_button);
+
+        topActionbar =findViewById(R.id.top_actionbar);
+        recyclerviewDrage=findViewById(R.id.recyclerview_drage);
+        topLayout=findViewById(R.id.topLayout);
+
+        tabLayout=findViewById(R.id.tab_layout);
+
+        recyclerView=findViewById(R.id.recycler_view);
+
+        
         titleText.setText(this.getResources().getString(R.string.all_appliction));
         rightImge.setVisibility(View.GONE);
         leftImage.setImageResource(R.mipmap.icon_back);

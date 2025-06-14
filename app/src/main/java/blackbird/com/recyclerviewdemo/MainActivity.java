@@ -14,6 +14,8 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.android.wifirttscan.WifiMainActivity;
+
 import org.aop.annotation.Trace;
 
 import java.util.List;
@@ -21,23 +23,19 @@ import java.util.List;
 import blackbird.com.recyclerviewdemo.adapter.MainRecyclerViewAdapter;
 import blackbird.com.recyclerviewdemo.bean.MenuResourceData;
 import blackbird.com.recyclerviewdemo.menueven.MenuClickEventContext;
+import blackbird.com.recyclerviewdemo.timeline.TimeLineActivity;
 import blackbird.com.recyclerviewdemo.uitls.AppMainButtonDataUtils;
 import blackbird.com.recyclerviewdemo.uitls.DataCleanManager;
 import blackbird.com.recyclerviewdemo.uitls.ThreadPool;
-import blackbird.com.simple.acvm.ViewModelActivity;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
 
-    @BindView(R.id.rv_mian_btn)
+
+public class MainActivity extends BaseActivity implements  View.OnClickListener{
+
+
     RecyclerView rvMianBtn;
-    @BindView(R.id.load_mian_btn)
     Button loadMianBtn;
-    @BindView(R.id.clear_cache_btn)
     Button clearCacheBtn;
-    @BindView(R.id.miv)
     ImageView miv;
 
     private MainRecyclerViewAdapter mMainRecyclerViewAdapter;
@@ -54,17 +52,29 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+
+        rvMianBtn=findViewById(R.id.rv_mian_btn);
+        loadMianBtn=findViewById(R.id.load_mian_btn);
+        loadMianBtn.setOnClickListener( this);
+        clearCacheBtn=findViewById(R.id.clear_cache_btn);
+        clearCacheBtn.setOnClickListener(this);
+        miv= findViewById(R.id.miv);
+        miv.setOnClickListener( this);
+        findViewById(R.id.vmda).setOnClickListener( this);
         initData();
     }
 
 
-    @OnClick({R.id.load_mian_btn, R.id.clear_cache_btn, R.id.miv, R.id.vmda})
-    public void onViewClicked(View view) {
+    //@OnClick({R.id.load_mian_btn, R.id.clear_cache_btn, R.id.miv, R.id.vmda})
+    @Override
+    public void onClick(View view) {
         switch (view.getId()) {
             case R.id.load_mian_btn:
-                NetDataTask netDataTask = new NetDataTask(MainActivity.this, HomeButtonTypeContent.netData);
-                ThreadPool.getInstance().getThreadPoolExecutor().execute(netDataTask);
+                //startActivity(new Intent(this,TimeLineActivity.class));
+                startActivity(new Intent(this, WifiMainActivity.class));
+
+                /*NetDataTask netDataTask = new NetDataTask(MainActivity.this, HomeButtonTypeContent.netData);
+                ThreadPool.getInstance().getThreadPoolExecutor().execute(netDataTask);*/
                 break;
             case R.id.clear_cache_btn:
                 DataCleanManager.cleanFiles(this);
@@ -85,12 +95,12 @@ public class MainActivity extends BaseActivity {
                 break;
 
             case R.id.miv:
-                startActivity(new Intent(this, ViewModelActivity.class));
+              //  startActivity(new Intent(this, ViewModelActivity.class));
 
                 break;
 
             case R.id.vmda:
-                startActivity(new Intent(this, ViewModelActivity.class));
+              //  startActivity(new Intent(this, ViewModelActivity.class));
                 break;
 
             case R.id.vmdrl:

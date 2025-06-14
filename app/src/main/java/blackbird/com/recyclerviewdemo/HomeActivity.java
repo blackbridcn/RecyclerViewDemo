@@ -16,6 +16,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class HomeActivity extends AppCompatActivity {
+
+
     // tv1用来显示时间，tv2是用来做个背景的
     private TextView tv1, tv2;
     // 想调用字体需要使用这个Typeface

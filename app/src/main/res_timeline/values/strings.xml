@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="this_is_a_sample_title">This is a sample title</string>
+    <string name="this_is_a_sample_sub_title_or_content">This is a sample sub title or content</string>
+
+    <string name="timeline_of_world_war_i">Timeline of World War I</string>
+    <string name="delivery_status">Steps!!</string>
+    <string name="add_to_top">Add to Top</string>
+    <string name="add_to_bottom">Add to Bottom</string>
+</resources>

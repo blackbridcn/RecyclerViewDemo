@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
  * Created by yzzhang on 2017/6/15.
  */
 public class RecyclerViewItemTouchCallback extends ItemTouchHelper.Callback {
+
     private String TAG = RecyclerViewItemTouchCallback.class.getSimpleName();
     private ItemTouchAdapter itemTouchAdapter;
 

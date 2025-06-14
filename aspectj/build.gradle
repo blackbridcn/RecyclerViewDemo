@@ -3,16 +3,14 @@ apply plugin: 'com.android.library'
 //apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
-    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+    compileSdk = 35
 
     defaultConfig {
-        minSdkVersion rootProject.ext.android["minSdkVersion"]
-        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
-
-        versionCode rootProject.ext.android["libVerCode"]
-        versionName rootProject.ext.android["libVerName"]
-
+            minSdk = 24
+            targetSdk = 35
+            versionCode = 1
+            versionName = "1.0"
     }
 
     buildTypes {
@@ -22,9 +20,10 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = rootProject.ext.android["sourceCompatibility"]
-        targetCompatibility = rootProject.ext.android["targetCompatibility"]
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
+    namespace 'com.aspectj'
 
 }
 
@@ -32,8 +31,8 @@ dependencies {
     //引入aspectj的依赖
    // api 'org.aspectj:aspectjrt:1.9.5'
 
-    compileOnly rootProject.ext.dependencies["lombok"]
-    annotationProcessor rootProject.ext.dependencies["lombok-compiler"]
+    //compileOnly rootProject.ext.dependencies["lombok"]
+    //annotationProcessor rootProject.ext.dependencies["lombok-compiler"]
 }
 
 

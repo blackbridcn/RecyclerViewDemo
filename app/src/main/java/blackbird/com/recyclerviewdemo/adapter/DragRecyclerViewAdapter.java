@@ -30,6 +30,8 @@ import blackbird.com.recyclerviewdemo.uitls.drag_recycleview.RecyclerViewItemTou
 
 public class DragRecyclerViewAdapter extends RecyclerView.Adapter<DragRecyclerViewAdapter.DragViewHodler>
         implements RecyclerViewItemTouchCallback.ItemTouchAdapter {
+
+
     private MenuManagerActivity mContext;
     private List<MenuResourceData> mainList;
     private boolean isEdit;

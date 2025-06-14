@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/flower_finder"
+        android:text="flower_finder"
         android:textAppearance="?attr/textAppearanceHeadline3" />
 
     <TextView
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/flower_string"
+        android:text="flower_string"
         android:textAppearance="?attr/textAppearanceHeadline6" />
 
 </LinearLayout>

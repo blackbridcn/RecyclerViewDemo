@@ -1,6 +1,5 @@
 package org.aop.wrap;
 
-import lombok.Data;
 
 /**
  * File: SnapShot.java
@@ -11,7 +10,6 @@ import lombok.Data;
  * 2020/4/4 : Create SnapShot.java (yuzhuzhang);
  * -----------------------------------------------------------------
  */
-@Data
 public class SnapShot {
 
     private long startTime;

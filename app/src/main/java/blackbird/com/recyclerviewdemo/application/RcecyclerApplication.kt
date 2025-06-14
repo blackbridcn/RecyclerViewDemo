@@ -37,7 +37,9 @@ class RcecyclerApplication : Application()  {
 
 
     var callback = object : ActivityLifecycleCallbacks {
-        override fun onActivityCreated(activity: Activity, bundle: Bundle) {}
+        override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
+        }
+
         override fun onActivityStarted(activity: Activity) {}
         override fun onActivityResumed(activity: Activity) {}
         override fun onActivityPaused(activity: Activity) {}
