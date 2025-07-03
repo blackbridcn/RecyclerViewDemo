@@ -90,7 +90,7 @@ public class MenuManagerActivity extends BaseActivity{
         initData();
         initDrageRecyclerView();
         setAllRecyclerViewAdapter();
-        initTabLayout();
+        //initTabLayout();
         //https://github.com/ywanhzy/MenuManage-Imitate-Alipay
         //https://github.com/Cornflower1991/RecyclerViewTabLayout
         //https://blog.csdn.net/xu_coding/article/details/80870334
@@ -118,7 +118,7 @@ public class MenuManagerActivity extends BaseActivity{
         recyclerviewDrage=findViewById(R.id.recyclerview_drage);
         topLayout=findViewById(R.id.topLayout);
 
-        tabLayout=findViewById(R.id.tab_layout);
+       // tabLayout=findViewById(R.id.tab_layout);
 
         recyclerView=findViewById(R.id.recycler_view);
 

@@ -6,6 +6,10 @@
     <color name="grey">#FFE6E6E6</color>
     <color name="button_selesct_bg">#F2F2F2</color>
 
+    <color name="sel_text_color">#ffec7251</color>
+
+
+
     <color name="category_button_select_unpressed">#ff007dff</color>
     <color name="category_button_unselect">#ffeaeaea</color>
     <color name="change_submit_btn_pressed_bg">#0c000000</color>

@@ -9,4 +9,16 @@
     <dimen name="action_text_size">20sp</dimen>
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+
+
+    <dimen name="root_logo_ML">60dp</dimen>
+    <dimen name="root_logo_MT">53dp</dimen>
+
+    <dimen name="item_app_width">176dp</dimen>
+    <dimen name="item_app_height">98dp</dimen>
+
+    <dimen name="item_app_iv_width">48dp</dimen>
+
+    <dimen name="item_app_name_textsize">16sp</dimen>
+    <dimen name="radius_11dp">11dp</dimen>
 </resources>

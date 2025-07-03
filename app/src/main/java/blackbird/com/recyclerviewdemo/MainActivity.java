@@ -24,6 +24,7 @@ import blackbird.com.recyclerviewdemo.adapter.MainRecyclerViewAdapter;
 import blackbird.com.recyclerviewdemo.bean.MenuResourceData;
 import blackbird.com.recyclerviewdemo.menueven.MenuClickEventContext;
 import blackbird.com.recyclerviewdemo.timeline.TimeLineActivity;
+import blackbird.com.recyclerviewdemo.tv.tab.TabViewPagerRecyclerViewActivity;
 import blackbird.com.recyclerviewdemo.uitls.AppMainButtonDataUtils;
 import blackbird.com.recyclerviewdemo.uitls.DataCleanManager;
 import blackbird.com.recyclerviewdemo.uitls.ThreadPool;
@@ -62,6 +63,9 @@ public class MainActivity extends BaseActivity implements  View.OnClickListener{
         miv.setOnClickListener( this);
         findViewById(R.id.vmda).setOnClickListener( this);
         initData();
+
+        findViewById(R.id.load_tab_viewpage_btn).setOnClickListener(this);
+
     }
 
 
@@ -69,6 +73,11 @@ public class MainActivity extends BaseActivity implements  View.OnClickListener{
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.load_tab_viewpage_btn:
+
+                startActivity(new Intent(this, TabViewPagerRecyclerViewActivity.class));
+                break;
+
             case R.id.load_mian_btn:
                 //startActivity(new Intent(this,TimeLineActivity.class));
                 startActivity(new Intent(this, WifiMainActivity.class));

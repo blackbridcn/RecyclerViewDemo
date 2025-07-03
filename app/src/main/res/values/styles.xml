@@ -15,5 +15,30 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-\
+    <attr name="radius" format="dimension" />
+    <attr name="strokeWidth" format="dimension" />
+    <attr name="strokeColor" format="reference|color" />
+    <attr name="shadowColor" format="reference|color" />
+    <attr name="needShadow" format="boolean" />
+
+    <declare-styleable name="RoundCorner">
+        <attr name="radius" />
+        <attr name="strokeWidth" />
+        <attr name="strokeColor" />
+        <attr name="shadowColor" />
+        <attr name="needShadow" />
+    </declare-styleable>
+
+    <!-- 只是为了有提示 -->
+    <declare-styleable name="TvRoundRelativeLayout">
+        <attr name="radius" />
+        <attr name="strokeWidth" />
+        <attr name="strokeColor" />
+        <attr name="shadowColor" />
+        <attr name="needShadow" />
+    </declare-styleable>
+
+    <declare-styleable name="TvRoundTextView">
+        <attr name="radius" />
+    </declare-styleable>
 </resources>
